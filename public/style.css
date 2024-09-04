@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+    color: #666;
+    background-color: #F1F1F1;
+    font-size: large;
+    margin: 1em;
+}
+
+strong {
+    color: black;
+}
+
+a {
+    color: #008080;
+}
+
+form {
+    display: inline-block;
+}
+
+img {
+    max-width: 100%;
+}
