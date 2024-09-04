@@ -5,7 +5,7 @@ Efter genomgång görs övningar nedan i par.
 
 * Ladda ner repositoriet till mappen Webbserverprogrammering på din dator. Antingen som ZIP, isåfall måste du packa upp zip-filen eller så laddar du ner med: `git clone`
 * Installera: `bundle install`
-* "Seeda databasen": `rake seed`
+* *Seeda* databasen: `rake seed`
 * Köra: `rake dev`
 * Surfa till: http://localhost:9292
 
