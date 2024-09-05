@@ -1,8 +1,7 @@
-<h2>Alla frukter i frukt-databasen</h2>
+<h2>Alla frukter i butiken</h2>
 
-<dl>
+<ul>
 <% @fruits.each do |fruit| %>
-  <dt><a href="/fruits/<%= fruit['id']%>"><%= fruit['name'] %></a></dt>
-  <dd>Tastiness: <%= fruit['tastiness'] %></dd>
+  <li><a href="/fruits/<%= fruit['id']%>"><%= fruit['name'] %></a></li>
 <% end %>
-</dl>
+</ul>

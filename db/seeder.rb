@@ -16,13 +16,14 @@ class Seeder
     db.execute('CREATE TABLE fruits (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL,
-                tastiness INTEGER)')
+                tastiness INTEGER,
+                description TEXT)')
   end
 
   def self.populate_tables
-    db.execute('INSERT INTO fruits (name, tastiness) VALUES ("apple",   7)')
-    db.execute('INSERT INTO fruits (name, tastiness) VALUES ("pear",    6)')
-    db.execute('INSERT INTO fruits (name, tastiness) VALUES ("banana",  4)')
+    db.execute('INSERT INTO fruits (name, tastiness, description) VALUES ("Äpple",   7, "En rund frukt som finns i många olika färger.")')
+    db.execute('INSERT INTO fruits (name, tastiness, description) VALUES ("Päron",    6, "En nästan rund, men lite avläng, frukt. Oftast mjukt fruktkött.")')
+    db.execute('INSERT INTO fruits (name, tastiness, description) VALUES ("Banan",  4, "En avlång gul frukt.")')
   end
 
   private

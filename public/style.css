@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
     color: #666;
     background-color: #F1F1F1;
-    font-size: large;
+    font-size: x-large;
     margin: 1em;
 }
 
@@ -30,6 +30,7 @@ nav ul {
 
 nav ul li {
     display: inline-block;
+    margin-right: 0.5em;
 }
 
 nav ul li a {
@@ -42,5 +43,19 @@ nav ul li a:hover {
 
 .logo {
     font-weight: 100;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-family: cursive;
+    color: cornflowerblue;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+blockquote {
+    background-color: salmon;
+    color: black;
+    padding: 2em;
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
 }
