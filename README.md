@@ -2,6 +2,8 @@
 Exempel-projekt nummer 2 med övningar till kursen Webbserverprogrammering 1 på NTI Gymnasiet Johanneberg. 
 Efter genomgång görs övningar nedan i par.
 
+![Alt text](docs/img/fruktparadiset.png)
+
 ## Komma igång
 * Ladda ner repositoriet till mappen Webbserverprogrammering på din dator. Antingen som ZIP (isåfall måste du packa upp ZIP-filen) eller så laddar du ner med: `git clone`
 * Installera: `bundle install`
