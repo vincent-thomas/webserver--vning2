@@ -41,11 +41,19 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+header {
+    display: flex;
+    margin-bottom: 1em;
+    align-items: flex-end;
+    gap: 1em;
+}
+
 .logo {
     font-weight: 100;
     text-transform: capitalize;
     font-family: cursive;
-    color: cornflowerblue;
+    color: coral;
+    margin: 0;
 }
 
 .logo a {
