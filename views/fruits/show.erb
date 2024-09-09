@@ -1,1 +1,18 @@
-<blockquote>Todo: Visa all information on frukten (med ID från URLen).</blockquote>
+<div style="
+     display: flex;
+     justify-content: space-between;
+     ">
+  <div>
+    <p>Id: <%= @fruit["id"] %></p>
+    <h1>Name: <%= @fruit["name"] %></h1>
+    <h2>beskrivning: <%= @fruit["description"] %></h2>
+  </div>
+  <div>
+    <form method="POST" action="/fruits/delete">
+      <input value="<%= @fruit["id"] %>" type="hidden" />
+      <button type="submit">
+        Ta bort
+      </button>
+    </form>
+  </div>
+</div>

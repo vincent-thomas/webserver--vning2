@@ -18,8 +18,16 @@ class App < Sinatra::Base
 
     #Routen hämtar alla frukter i databasen
     get '/fruits' do
-        @fruits = db.execute('SELECT * FROM fruits')
+        @fruits = db.execute('SELECT * FROM fruits ORDER BY id DESC;')
         erb(:"fruits/index")
+    end
+
+
+    #Routen hämtar alla frukter i databasen
+    post '/fruits/delete' do
+      id = params["id"]
+      @fruits = db.execute('DELETE FROM fruits WHERE id = ?;', id)
+      redirect("/fruits")
     end
 
     # Övning no. 2.1
@@ -28,16 +36,20 @@ class App < Sinatra::Base
         erb(:"fruits/new")
     end
 
-    # Övning no. 2.2
-    # Routen sparar en frukt till databasen och gör en redirect till '/fruits'.
-    post '/fruits' do 
-        p params
-        #todo
+
+    post '/fruits/new' do
+      name = params["name"]
+      
+      # Update
+      db.execute("INSERT INTO fruits  (name) VALUES(\"#{name}\");")
+
+      redirect("/fruits")
     end
 
     # Övning no. 1
     # Routen visar en lista på alla frukter i databasen.
     get '/fruits/:id' do | id |
+        @fruit = db.execute("SELECT * FROM fruits WHERE id = ?;", id)[0]
         erb(:"fruits/show")
     end
 
