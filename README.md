@@ -17,13 +17,13 @@ Efter genomgång görs övningar nedan i par.
 
 ## Genomgång 1
 * Visa routes `GET /fruits` och `/views/fruits/index.erb`
-    * Visa `layout.erb`
-    * Visa SQL:
-        * `db/seeder.rb`
-        * `db/fruits.sqlite`
-        * `app.rb/db-metoden` 
-        * *DB Browser for SQLite*
-        * *SQLBolt*
+* Visa `layout.erb`
+* Visa SQL:
+    * `db/seeder.rb`
+    * `db/fruits.sqlite`
+    * `app.rb/db-metoden` 
+    * *DB Browser for SQLite*
+    * *SQLBolt*
 
 ## Uppgifter 1 (i par)
 1. Gör *SQL Bolt* t.o.m. **övning 5**.
