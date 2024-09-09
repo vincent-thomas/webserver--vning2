@@ -1,7 +1,7 @@
 class App < Sinatra::Base
 
     # Funktion som returnerar en databaskoppling
-    # Exempel på användning: db.execute('Din SQL-fråga')
+    # Exempel på användning: db.execute('SELECT * FROM fruits')
     def db
         return @db if @db
 
@@ -18,28 +18,26 @@ class App < Sinatra::Base
 
     #Routen hämtar alla frukter i databasen
     get '/fruits' do
-        @fruits = db.execute('SELECT * FROM fruits ORDER BY id DESC')
+        @fruits = db.execute('SELECT * FROM fruits')
         erb(:"fruits/index")
     end
 
-    # Övning no. 2
+    # Övning no. 2.1
     # Routen visar ett formulär för att spara en ny frukt till databasen.
     get '/fruits/new' do 
         erb(:"fruits/new")
     end
 
-    # Routen sparar data till databasen och gör en redirect till '/fruits'.
+    # Övning no. 2.2
+    # Routen sparar en frukt till databasen och gör en redirect till '/fruits'.
     post '/fruits' do 
+        p params
         #todo
     end
 
     # Övning no. 1
     # Routen visar en lista på alla frukter i databasen.
-    # Varför .first?
     get '/fruits/:id' do | id |
-        @fruit = db.execute('SELECT * FROM fruits WHERE id=?',id).first
-        p @fruit
-        
         erb(:"fruits/show")
     end
 
