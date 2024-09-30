@@ -51,6 +51,14 @@ class App < Sinatra::Base
         erb(:"fruits/show")
     end
 
+
+    # Routen visar all info (från databasen) om en frukt
+    post '/fruits/:id/update' do | id |
+      p params
+      @fruit = db.execute("UPDATE  fruits SET description = ?, name = ? WHERE id = ?;", [params["fruit_description"], params["fruit_name"], id])
+      redirect("/fruits")
+    end
+
     # Routen tar bort frukten med id
     post '/fruits/:id/delete' do | id |
       db.execute("DELETE FROM fruits WHERE id =?", id)

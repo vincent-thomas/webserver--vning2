@@ -7,6 +7,9 @@
     <h1>Name: <%= @fruit["name"] %></h1>
     <h2>beskrivning: <%= @fruit["description"] %></h2>
   </div>
+  <a href="/fruits/<%= @fruit["id"] %>/edit">
+    Ändra
+  </a>
   <div>
     <form method="POST" action="/fruits/delete">
       <input value="<%= @fruit["id"] %>" type="hidden" />
