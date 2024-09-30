@@ -1,8 +1,8 @@
 # Webbserverprogrammering 1 - Övning 2
-Exempel-projekt nummer 2 med övningar till kursen Webbserverprogrammering 1 på NTI Gymnasiet Johanneberg. 
-Efter genomgång görs övningar nedan i par.
+Exempel-projekt nummer 2 med övningar till kursen Webbserverprogrammering 1 på NTI Gymnasiet Johanneberg.
+Efter genomgång görs övningar nedan **i par**.
 
-![Alt text](docs/img/fruktparadiset.png)
+![Skärmbild på sidan vi kommer arbeta med](docs/img/fruktparadiset.png)
 
 ## Komma igång
 * Ladda ner repositoriet till mappen Webbserverprogrammering på din dator. Antingen som ZIP (isåfall måste du packa upp ZIP-filen) eller så laddar du ner med: `git clone`
@@ -19,33 +19,67 @@ Efter genomgång görs övningar nedan i par.
 * Visa routes `GET /fruits` och `/views/fruits/index.erb`
 * Visa `layout.erb`
 * Visa SQL:
-    * `db/seeder.rb`
-    * `db/fruits.sqlite`
-    * `app.rb/db-metoden` 
     * *DB Browser for SQLite*
     * *SQLBolt*
+    * `db/seeder.rb`
+    * `db/fruits.sqlite`
+    * `app.rb/db-metoden`
+    * `views/layout.erb`
+    * `db.execute('SELECT * FROM fruits WHERE id=?',id).first`
 
-## Uppgifter 1 (i par)
-1. Gör *SQLBolt* t.o.m. **övning 5**.
-2. Testa att sortera om frukterna på t.ex. ID.
-3. Visa all info om en frukt på routen `'/fruits/:id'`. 
-    * Använd `fruits/show.erb` och `layout.erb`.
-    * Lägg till fler funktioner som t.ex. 
-        * Visa stjärnor istället för ett nummer för fruktbetyg
-        * Lägg till fler kolumner i databasen (m.h.a. `seeder.rb`) som t.ex. origin.
-4. Lägg till ett formulär för att skapa en ny frukt. Börja med routen `GET '/fruits/new'`. 
-    * För att spara frukten behöver du skicka datat från formuläret till `POST '/fruits/new'`. Se uppgifter nedan.
+### Uppgifter 1
+1. Gör *SQLBolt* t.o.m. **övning 2**.
+2. Testa att sortera om frukterna på t.ex. ID. Du behöver uppdatera SQL-koden: `db.execute('SELECT * FROM fruits')`
+3. Lägg till ca 5 nya frukter mha. `db/seeder.rb`. För att spara datan till databasen kör du `rake seed`
+4. Öppna databasfilen i DBBrowser och dubbelkolla så du ser din data även där.
+5. Visa all info om en frukt på routen `'/fruits/:id'`
+6. Lägg till mer data eller funktioner som t.ex.
+    * Visa stjärnor istället för ett nummer för fruktbetyg
+    * Lägg till fler kolumner i databasen som t.ex. vilket land en frukt kommer ifrån eller hur mycket den kostar / kg
+    * Lägg till testdatan mha. *DB Browser*
+    * Lägg till testdatan mha. `db/seeder.rb`. Vad hände med datan du la till i *DB Browser*?
 
 ## Genomgång 2
-* Ta bort en frukt
-* Uppdatera en frukt
+* Hur hänger allt ihop?
+* `db.execute('SELECT * FROM fruits WHERE id=?',id).first` (igen)
+* Ruby hashes
+* SQL Injections
+
+### Uppgifter 2
+1. Gör *SQLBolt* t.o.m. **övning 10**.
+2. Gör alla uppgifter på #1
+3. Lägg till funktioner du kan komma på till fruktshoppen
+4. Börja kämpa med nästa veckas uppgifter (uppgifter #3)
+
+## Genomgång 3
+* Föreläsningen: **5 - Ta bort frukt + Spara ny frukt**
+* [HTTP Requests & Response + GET & POST](https://ntijoh.github.io/webbserverprogrammeringsboken/#_requests_routing) (till Routes for *CRUD*)
+* [Formulär](https://ntijoh.github.io/webbserverprogrammeringsboken/#_formul%C3%A4r)
+* SQL: [Delete](https://ntijoh.github.io/webbserverprogrammeringsboken/#_action_delete_route_messagesiddelete_method_post) & [Inserts](https://ntijoh.github.io/webbserverprogrammeringsboken/#_insert)
+* Params
+
+### Uppgifter 3
+1. Gör en knapp (& formulär) som tar bort en frukt.\
+   Använd routen: `post '/fruits/:id/delete'`
+2. Rita ett sekvensdiagram för hur det ser ut när ni sparar en ny frukt. Bifoga det i din loggbok. Använd: https://www.websequencediagrams.com/app
+3. Lägg till ett formulär för att spara en ny frukt.\
+   Använd routen `GET '/fruits/new'` och filen `new.erb`
+4. Gör routen som sparar datan till databasen: `POST '/fruits/new'`.
+5. Arbeta vidare med *SQLBolt*
+6. Utöka funktionerna.
+    * Utforska och lägg till de funktioner du tycker behövs
+    * Lägg till bilder (eller ikoner) till frukterna
+    * Börja kämpa med nästa veckas uppgifter (#4)
+
+## Genomgång 4
+* Föreläsning: **6 - Uppdatera en frukt**
+* [Uppdatera data](https://ntijoh.github.io/webbserverprogrammeringsboken/#_action_edit_route_messagesidedit_method_get)
 * C.R.U.D.
 
-## Uppgifter 2 (i par)
-5. Gör SQL Bolt t.o.m. övning 15.
-6. Gör en ta-bort-knapp som tar bort en frukt.
-7. Gör en ändra-knapp
-8. Utöka funktionerna.
-    * Utforska och lägg till de funktioner du tycker behövs
-    * Lägg till bilder till frukterna
-    * Lägg till kategorier för frukter & grönsaker
+### Uppgifter 4
+1. Gör ett sekvensdiagram för hur uppdateringen av en frukt går till. Lägg det i loggboken.
+2. Lägg funktioner för att uppdatera datan för en frukt
+3. Samanfatta i loggboken vad du lärt dig på dessa 4 lektioner. Markera även i betygsmatrisen (i loggboken) vad du tycker du kan och inte kan.
+4. Gör *SQLBolt* t.o.m. **övning 15**.
+5. Lägg till kategorier för frukter & grönsaker
+6. Lägg till funktioner du tycker + gör färdigt allt du inte hunnit tidigare
